@@ -16,8 +16,8 @@ spl_autoload_register([new Autoload(), 'loadClass']);
 //index.php?c=controller&a=action
 //index.php?c=catalog&a=cart&id=5
 //index.php?c=catalog
-//index.php?c=basket&a=index
-//index.php?c=basket&a=add&id=3
+//index.php?c=cart&a=index
+//index.php?c=cart&a=add&id=3
 
 $controllerName = $_GET['c'] ?: 'product';
 $actionName = $_GET['a'];
