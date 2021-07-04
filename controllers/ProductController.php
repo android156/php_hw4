@@ -5,24 +5,12 @@ namespace app\controllers;
 
 
 use app\models\Product;
+use app\models\Model;
 
-class ProductController
+class ProductController extends MainController
 {
-    private $action;
-    private $defaultAction = 'index';
-    private $layout = 'main';
-    private $useLayout = true;
-
-    public function runAction($action) {
-        $this->action = $action ?? $this->defaultAction;
-        $method = 'action' . ucfirst($this->action);
-        if (method_exists($this, $method)) {
-            $this->$method();
-        } else {
-            die("экшен не существует");
-        }
-    }
-
+    protected $layout = 'main';
+    protected $useLayout = true;
     public function actionIndex() {
         echo $this->render('index');
     }
@@ -51,7 +39,7 @@ class ProductController
 
     public function render($template, $params = []) {
         if ($this->useLayout) {
-            return $this->renderTemplate("layouts/{$this->layout}", [
+            return $this->renderTemplate("layouts/$this->layout", [
                 'menu' => $this->renderTemplate('menu', $params),
                 'content' => $this->renderTemplate($template, $params)
             ]);
