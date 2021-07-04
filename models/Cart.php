@@ -4,10 +4,10 @@
 namespace app\models;
 
 
-class Basket extends DBModel
+class Cart extends DBModel
 {
 
-    public function getBasket() {
+    public function getCart() {
 
     }
 

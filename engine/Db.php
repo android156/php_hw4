@@ -56,8 +56,10 @@ class Db
     public function queryLimit($sql, $limit) {
         //LIMIT 0, $limit
         $stmt = $this->getConnection()->prepare($sql);
-        $stmt->bindValue(1, $limit, \PDO::PARAM_INT);
-        return []; //TODO  верните результат
+        $stmt->bindValue(1, $limit-3, \PDO::PARAM_INT);
+        $stmt->bindValue(2, 3, \PDO::PARAM_INT); // Шаг 3 пока закостылил тут, обычно этот параметр выбирают
+        $stmt->execute();
+        return $stmt; //TODO  верните результат
     }
 
     public function queryOneObject($sql, $params, $class)
