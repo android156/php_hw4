@@ -1,19 +1,27 @@
 <?php
-
-
 namespace app\controllers;
+use app\models\Cart;
+
+
 
 
 class CartController extends MainController
 {
-    public function actionIndex()
-    {
-        echo $this->render('cart');
-    }
 
-    public function actionCart()
+    public function actionCatalog()
     {
         $cart = Cart::getAll();
-        var_dump($cart);
+        echo $this->render('cart', ['cart' => $cart]);
     }
+
+//    public function actionCard() {
+//        $id = $_GET['id'];
+//
+//        $cart = Cart::getOne($id);
+//
+//        echo $this->render('card', [
+//            'cart' => $cart
+//        ]);
+//    }
+
 }

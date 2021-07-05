@@ -4,7 +4,7 @@
 namespace app\controllers;
 
 
-class MainController
+abstract class MainController
 {
     private $action;
     private $defaultAction = 'index';
