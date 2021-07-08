@@ -12,7 +12,7 @@ abstract class DBModel extends Model
 
     public static function getLimit($limit) {
         $tableName = static::getTableName();
-        $sql = "SELECT * FROM {$tableName} LIMIT 0, ?";
+        $sql = "SELECT * FROM {$tableName} LIMIT ?, ?";
         return Db::getInstance()->queryLimit($sql, $limit);
 
     }

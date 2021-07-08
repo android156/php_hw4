@@ -20,7 +20,7 @@ class Product extends DBModel
 
     protected static function getTableName()
     {
-        return 'products';
+        return 'goods';
     }
 
 }
